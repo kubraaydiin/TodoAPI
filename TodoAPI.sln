@@ -3,11 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoAPI", "TodoAPI\TodoAPI.csproj", "{DEB89F18-78E8-4D97-958A-3893E13D74CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoAPI", "TodoAPI\TodoAPI.csproj", "{DEB89F18-78E8-4D97-958A-3893E13D74CF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{77F67A71-2C41-48C9-8259-E1DB675E295A} = {77F67A71-2C41-48C9-8259-E1DB675E295A}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoAPI.Business", "TodoAPI.Business\TodoAPI.Business.csproj", "{77F67A71-2C41-48C9-8259-E1DB675E295A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoAPI.Business", "TodoAPI.Business\TodoAPI.Business.csproj", "{77F67A71-2C41-48C9-8259-E1DB675E295A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoAPI.Data", "TodoAPI.Data\TodoAPI.Data.csproj", "{6C29586A-56FB-4883-B560-673A7B65B68B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoAPI.Data", "TodoAPI.Data\TodoAPI.Data.csproj", "{6C29586A-56FB-4883-B560-673A7B65B68B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

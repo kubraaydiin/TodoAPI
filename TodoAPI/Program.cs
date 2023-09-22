@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using TodoAPI.Business.Operations;
+using TodoAPI.Controllers;
 using TodoAPI.Data.Entities;
+using TodoAPI.Data.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +14,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<TodoContext>(item => item.UseSqlServer(builder.Configuration.GetConnectionString("DefaultDatabase")));
+builder.Services.AddTransient<ITodoRepository, TodoRepository>();
+builder.Services.AddTransient<ITodoOperations, TodoOperations>();
+
 
 var app = builder.Build();
 
