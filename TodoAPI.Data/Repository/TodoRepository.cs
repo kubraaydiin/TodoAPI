@@ -9,42 +9,42 @@ namespace TodoAPI.Data.Repository
 {
     public class TodoRepository : ITodoRepository
     {
-        private readonly TodoContext _todoContext;
-        public TodoRepository(TodoContext todoContext)
+        private readonly TodoDbContext _todoDbContext;
+        public TodoRepository(TodoDbContext todoDbContext)
         {
-            _todoContext = todoContext;
+            _todoDbContext = todoDbContext;
         }
 
         public List<TodoItem> GetAll()
         {
-            var todos = _todoContext.TodoItems.ToList();
+            var todos = _todoDbContext.TodoItems.ToList();
             return todos;
         }
 
         public TodoItem GetById(int id)
         {
-            var todo = _todoContext.TodoItems.SingleOrDefault(x => x.Id == id);
+            var todo = _todoDbContext.TodoItems.SingleOrDefault(x => x.Id == id);
             return todo;
         }
 
         public void Add(TodoItem todoItem)
         {
-            _todoContext.TodoItems.Add(todoItem);
-            _todoContext.SaveChanges();
+            _todoDbContext.TodoItems.Add(todoItem);
+            _todoDbContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
             var todo = GetById(id);
 
-            _todoContext.Remove(todo);
-            _todoContext.SaveChanges();
+            _todoDbContext.Remove(todo);
+            _todoDbContext.SaveChanges();
         }
 
         public void Update(TodoItem todoItem)
         {
-            _todoContext.TodoItems.Update(todoItem);
-            _todoContext.SaveChanges();
+            _todoDbContext.TodoItems.Update(todoItem);
+            _todoDbContext.SaveChanges();
         }
     }
 }
