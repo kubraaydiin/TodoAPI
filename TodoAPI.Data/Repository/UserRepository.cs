@@ -10,12 +10,6 @@ namespace TodoAPI.Data.Repository
             _todoDbContext = todoDbContext;
         }
 
-        public void AddUsers(Users users)
-        {
-            _todoDbContext.Users.Add(users);
-            _todoDbContext.SaveChanges();
-        }
-
         public bool IsExist(string email)
         {
             var isExist = _todoDbContext.Users.Any(x => x.Email == email);

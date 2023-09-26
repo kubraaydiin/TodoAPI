@@ -7,14 +7,16 @@ namespace TodoAPI.Business.Operations
     public class UserOperations : IUserOperations
     {
         private readonly IUserRepository _userRepository;
-        public UserOperations(IUserRepository userRepository)
+        private readonly IBaseRepository<Users> _baseRepository;
+        public UserOperations(IUserRepository userRepository, IBaseRepository<Users> baseRepository)
         {
             _userRepository = userRepository;
+            _baseRepository = baseRepository;
         }
 
-        public void AddUser(Users userItem)
+        public void Add(Users userItem)
         {
-            _userRepository.AddUsers(userItem);
+            _baseRepository.Add(userItem);
         }
 
         public bool IsExistEmail(string email)

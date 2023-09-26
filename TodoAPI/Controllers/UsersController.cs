@@ -46,7 +46,7 @@ namespace TodoAPI.Controllers
                 Password = hashedPassw
             };
 
-            _userOperations.AddUser(userItem);
+            _userOperations.Add(userItem);
             return StatusCode(201);
         }
 
