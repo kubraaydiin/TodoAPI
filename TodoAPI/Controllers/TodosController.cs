@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TodoAPI.Business.Operations;
 using TodoAPI.Data.Entities;
 using TodoAPI.Model;
@@ -37,6 +38,7 @@ namespace TodoAPI.Controllers
             return Ok(result);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Add(AddingTodoModel addingTodoModel)
         {
@@ -52,6 +54,7 @@ namespace TodoAPI.Controllers
             return StatusCode(201);
         }
 
+        [Authorize]
         [HttpDelete]
         [Route("{id}")]
         public IActionResult DeleteById(int id)

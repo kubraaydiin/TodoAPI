@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TodoAPI.Data.Entities;
+﻿using TodoAPI.Data.Entities;
 using TodoAPI.Data.Repository;
 
 
@@ -11,37 +6,37 @@ namespace TodoAPI.Business.Operations
 {
     public class TodoOperations : ITodoOperations
     {
-        private readonly ITodoRepository _todoRepository;
-        public TodoOperations(ITodoRepository todoRepository)
+        private readonly IBaseRepository<TodoItem> _baseRepository;
+        public TodoOperations(IBaseRepository<TodoItem> baseRepository)
         {
-            _todoRepository = todoRepository;
+            _baseRepository = baseRepository;
         }
 
         public List<TodoItem> Todos()
         {
-            var todos = _todoRepository.GetAll();
+            var todos = _baseRepository.GetAll();
             return todos;
         }
 
         public TodoItem GetTodoItemById(int id)
         {
-            var todoItem = _todoRepository.GetById(id);
+            var todoItem = _baseRepository.GetById(id);
             return todoItem;
         }
 
         public void CreateTodoItem(TodoItem todoItem)
         {
-            _todoRepository.Add(todoItem);
+            _baseRepository.Add(todoItem);
         }
 
         public void DeleteTodoItem(int id)
         {
-            _todoRepository.Delete(id);
+            _baseRepository.Delete(id);
         }
 
         public void UpdateTodoItem(TodoItem todoItem)
         {
-            _todoRepository.Update(todoItem);
+            _baseRepository.Update(todoItem);
         } 
 
     }

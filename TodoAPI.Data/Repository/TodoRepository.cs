@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TodoAPI.Data.Entities;
+﻿using TodoAPI.Data.Entities;
 
 namespace TodoAPI.Data.Repository
 {
-    public class TodoRepository : ITodoRepository
+    public class TodoRepository : ITodoRepository, IBaseRepository<TodoItem>
     {
         private readonly TodoDbContext _todoDbContext;
         public TodoRepository(TodoDbContext todoDbContext)
